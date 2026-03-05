@@ -49,6 +49,19 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def root() -> dict:
+    """
+    Simple health/info endpoint so hitting the Render root URL
+    (e.g. https://mutual-fund-genai-chatbot.onrender.com/) does not 404.
+    """
+    return {
+        "status": "ok",
+        "message": "Groww Mutual Fund RAG backend",
+        "endpoints": ["/chat", "/meta"],
+    }
+
+
 def _compute_last_updated() -> Optional[str]:
     path: Path = phase2_config.PHASE1_JSON_PATH
     if not path.exists():
