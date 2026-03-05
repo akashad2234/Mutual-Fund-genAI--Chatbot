@@ -1,0 +1,368 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.app-header-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.app-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #04ad83, #17a5f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.app-brand-text h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.app-brand-subtitle {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.app-header-note {
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  background: #fef9c3;
+  color: #854d0e;
+  font-size: 0.9rem;
+}
+
+.app-header-funds {
+  margin-top: 0.75rem;
+}
+
+.app-header-funds-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.app-header-funds-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.app-header-fund-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.9rem;
+  border: 1px solid #e5e7eb;
+  font-size: 0.8rem;
+  color: #111827;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.app-header-fund-pill span.app-header-fund-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 0.75rem;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #4f46e5;
+}
+
+.app-header-fund-pill span.app-header-fund-name {
+  font-weight: 600;
+  text-align: left;
+}
+
+.app-header-fund-pill:hover {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.3);
+}
+
+.app-header-last-updated {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1.75rem;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.chat-window {
+  padding: 1.25rem 1.5rem;
+  height: 480px;
+  overflow-y: auto;
+}
+
+.chat-suggestions {
+  margin-bottom: 1rem;
+}
+
+.chat-suggestions-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.chat-suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chat-suggestion-item:hover:not(:disabled) {
+  border-color: #04ad83;
+  background: #e6f9f2;
+}
+
+.chat-suggestion-item:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.chat-suggestion-icon {
+  font-size: 1rem;
+  color: #4ade80;
+}
+
+.chat-suggestion-text {
+  flex: 1;
+}
+
+.chat-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.chat-message {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.chat-message-user {
+  justify-content: flex-end;
+}
+
+.chat-message-assistant {
+  justify-content: flex-start;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.chat-message-user .chat-bubble {
+  background: #04ad83;
+  color: #ffffff;
+  border-color: #038668;
+}
+
+.chat-message-assistant .chat-bubble {
+  background: #ffffff;
+  color: #111827;
+}
+
+.chat-bubble-loading {
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.chat-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 0.2rem;
+}
+
+.chat-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.chat-sources {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.chat-sources span {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.chat-sources ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1rem;
+}
+
+.chat-sources a {
+  color: #17a5f5;
+  text-decoration: none;
+}
+
+.chat-sources a:hover {
+  text-decoration: underline;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem 1.25rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.chat-input {
+  flex: 1;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.chat-input::placeholder {
+  color: #9ca3af;
+}
+
+.chat-input:focus {
+  border-color: #04ad83;
+  box-shadow: 0 0 0 1px rgba(4, 173, 131, 0.35);
+}
+
+.chat-send-button {
+  border-radius: 999px;
+  border: none;
+  padding: 0.65rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #04ad83;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.1s ease;
+}
+
+.chat-send-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.chat-send-button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(4, 173, 131, 0.45);
+}
+
+.chat-error {
+  padding: 0 1.5rem 1rem;
+  color: #b91c1c;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1.25rem 1rem;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+
+  .chat-window {
+    height: 420px;
+  }
+
+  .chat-bubble {
+    max-width: 90%;
+  }
+}
+

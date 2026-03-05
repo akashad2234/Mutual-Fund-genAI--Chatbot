@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+data/structured/phase2.db
+data/structured/funds_phase1.json
+data/.env
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.DS_Store
+
+.cursor/
+.idea/
+.vscode/
