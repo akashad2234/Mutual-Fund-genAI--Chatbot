@@ -27,7 +27,10 @@ FUND_SOURCES: List[FundSource] = [
         slug="bandhan-large-mid-cap-fund-direct-growth",
     ),
     FundSource(
-        name="ICICI Prudential Top 100 Fund Direct Growth",
+        # Groww displays this as "ICICI Prudential Large & Mid Cap Fund Direct Plan Growth"
+        # but the URL/slug still refer to "top-100". We keep the display name in sync
+        # with the UI so that routing by fund name works correctly.
+        name="ICICI Prudential Large & Mid Cap Fund Direct Plan Growth",
         url="https://groww.in/mutual-funds/icici-prudential-top-100-fund-direct-growth",
         slug="icici-prudential-top-100-fund-direct-growth",
     ),
