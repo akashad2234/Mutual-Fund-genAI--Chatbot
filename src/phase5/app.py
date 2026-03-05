@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import List, Optional
 
@@ -10,6 +11,8 @@ from pydantic import BaseModel
 
 from src.phase2 import config as phase2_config
 from src.phase4.service import answer_message
+
+logger = logging.getLogger("phase5")
 
 
 class ChatRequest(BaseModel):
@@ -47,6 +50,22 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+def startup_refresh() -> None:
+    """
+    Ensure that Phase 1 and Phase 2 have run before serving traffic.
+    This is important on Render, where the filesystem starts empty on
+    each deploy, so we need to rebuild the structured JSON and SQLite DB.
+    """
+    try:
+        from src.phase7.main import run_refresh
+
+        summary = run_refresh()
+        logger.info("Startup refresh summary: %s", summary)
+    except Exception as exc:  # pragma: no cover - defensive
+        logger.warning("Startup refresh failed: %s", exc)
 
 
 @app.get("/")
